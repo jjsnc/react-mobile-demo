@@ -1,7 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import './index.less';
+import { Button } from 'antd-mobile';
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
         >
           Learn React
         </a>
+        <Button className="btn">按钮</Button>
       </header>
     </div>
   );
