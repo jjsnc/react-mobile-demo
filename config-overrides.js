@@ -2,7 +2,9 @@ const path = require("path");
 const {
   override,
   fixBabelImports,
-  addWebpackAlias
+  addWebpackAlias,
+  addPostcssPlugins,
+  addDecoratorsLegacy
 } = require('customize-cra');
 
 const alter_config = () => (config, env) => {
@@ -37,5 +39,9 @@ module.exports = override(
   fixBabelImports('import', {
     libraryName: 'antd-mobile',
     style: 'css',
-  })
+  }),
+  addPostcssPlugins([require('postcss-pxtorem')({
+    rootValue: 16,
+    propList: ['*']
+ }),])
 )

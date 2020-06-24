@@ -6,6 +6,8 @@ import { Button } from 'antd-mobile';
 function App() {
   return (
     <div className="App">
+      <div className="div">test</div>
+      <div className="div2">test</div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
