@@ -4,7 +4,6 @@ const {
   fixBabelImports,
   addWebpackAlias,
   addPostcssPlugins,
-  addDecoratorsLegacy
 } = require('customize-cra');
 
 const alter_config = () => (config, env) => {
