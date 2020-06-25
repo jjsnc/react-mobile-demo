@@ -15,7 +15,7 @@
 
     1: 在page目录下新建活动名称目录比如 active618
 
-    2: 直接把page/active-default目录拷贝到page/active618目录下
+    2: 直接把page/active-default目录下文件拷贝到page/active618目录下
 
     3: npm run start page="acrtive618"  项目运行
 
