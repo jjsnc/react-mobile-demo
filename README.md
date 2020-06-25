@@ -8,7 +8,7 @@
     项目视图层:      react react-dom
     项目的路由:      react-route react-router-dom
     项目状态管:      redux react-redux redux-thunk
-    项目HTTP:       axios
+    项目HTTP :      axios
 
 
 ### 项目使用方式(比如新开一个活动项目)
