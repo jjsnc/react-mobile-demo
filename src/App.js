@@ -1,13 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
-import './index.less';
+import './App.less';
 import { Button } from 'antd-mobile';
 function App() {
   return (
     <div className="App">
-      <div className="div">test</div>
-      <div className="div2">test</div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -23,6 +20,8 @@ function App() {
         </a>
         <Button className="btn">按钮</Button>
       </header>
+      <div className="div">test</div>
+      <div className="div2">test</div>
     </div>
   );
 }
