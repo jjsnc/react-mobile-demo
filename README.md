@@ -1,15 +1,17 @@
-# 项目需求背景: 同一框架下可以开发多个移动端H5活动 
+### 项目需求背景: 
 
-# 项目技术栈
+    同一框架下可以开发多个移动端H5活动 
 
-    项目脚手架:     create-react-app
-    项目视图层:     react react-dom
-    项目路由:       react-route react-router-dom
-    项目状态管理:    redux react-redux redux-thunk
+### 项目技术栈
+
+    项目脚手架:      create-react-app
+    项目视图层:      react react-dom
+    项目的路由:      react-route react-router-dom
+    项目状态管:      redux react-redux redux-thunk
     项目HTTP:       axios
 
 
-# 项目使用方式(比如新开一个活动项目)
+### 项目使用方式(比如新开一个活动项目)
 
     1: 在page目录下新建活动名称目录比如 active618
 
