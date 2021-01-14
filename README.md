@@ -17,9 +17,9 @@
 
     2: 直接把page/active-default目录下文件拷贝到page/active618目录下
 
-    3: npm run start page="acrtive618"  项目运行
+    3: npm run start page="active618618"  项目运行
 
-    4: npm run build page="acrtive618"  项目打包
+    4: npm run build page="active618618"  项目打包
     
     5: 打包的目录在build/活动的名称
 
