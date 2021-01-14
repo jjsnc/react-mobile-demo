@@ -9,6 +9,7 @@
     "antd-mobile": "^2.3.3",
     "axios": "^0.21.1",
     "lodash": "^4.17.20",
+    "normalize.css": "^8.0.1",
     "postcss-pxtorem": "^5.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
