@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import "./index.less";
 class Home extends React.Component {
     componentDidMount() {
     }
     render() {
         return (
-            <div>Home</div>
+            <div className="test">Home</div>
         )
     }
 
