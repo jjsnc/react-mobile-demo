@@ -1,10 +1,30 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Modal } from "antd-mobile";
 import "./index.less";
+function closest(el, selector) {
+  const matchesSelector =
+    el.matches ||
+    el.webkitMatchesSelector ||
+    el.mozMatchesSelector ||
+    el.msMatchesSelector;
+  while (el) {
+    if (matchesSelector.call(el, selector)) {
+      return el;
+    }
+    el = el.parentElement;
+  }
+  return null;
+}
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { sticky: false };
+    this.state = {
+      sticky: false,
+      modal1: false,
+      activeSpecialty:"特色1",
+      specialtyList: ["特色1", "特色2", "特色3", "特色4", "特色5", "特色6"],
+    };
   }
   componentDidMount() {
     window.addEventListener("scroll", this.bindHandleScroll);
@@ -27,8 +47,56 @@ class Home extends React.Component {
   }
   handleScorllBottom() {
     if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-       console.log('你好呀 我滚动到底部了');
+      console.log("你好呀 我滚动到底部了");
     }
+  }
+  handleFeatureClick(item) {
+    this.handleFeatureHide()
+    this.setState({
+      activeSpecialty:item
+    })
+  }
+  handleFeatureShow(){
+    this.setState({
+      modal1: true,
+    });
+  }
+  handleFeatureHide(){
+  this.setState({
+      modal1: false,
+    });
+  }
+
+  onWrapTouchStart = (e) => {
+    // fix touch to scroll background page on iOS
+    if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
+      return;
+    }
+    const pNode = closest(e.target, ".am-modal-content");
+    if (!pNode) {
+      // e.preventDefault();
+    }
+  };
+  handleFeatureList() {
+    const specialtyList = this.state.specialtyList;
+    const listItems = specialtyList.map((item) => (
+      <div
+        className={`sub-item ${this.state.activeSpecialty===item?'active':''}`} 
+        key={item}
+        onClick={() => this.handleFeatureClick(item)}
+      >
+        {item}
+      </div>
+    ));
+    if (specialtyList.length % 3 !== 0) {
+      return (
+        <div className="list">
+          {listItems}
+          <div className="sub-item empty"></div>
+        </div>
+      );
+    }
+    return <div className="list">{listItems}</div>;
   }
   render() {
     return (
@@ -44,7 +112,7 @@ class Home extends React.Component {
         </div>
 
         <div className={`select-section ${this.state.sticky ? "active" : ""} `}>
-          <div className="targets ">目的地</div>
+          <div className={`targets ${this.state.modal1? 'active':''}`} onClick={this.handleFeatureShow.bind(this)}>目的地</div>
           <div className="tags">目的地</div>
         </div>
         <div className="list-section">
@@ -219,6 +287,19 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
+        <Modal
+          visible={this.state.modal1}
+          transparent
+          maskClosable={true}
+          onClose={this.handleFeatureHide.bind(this)}
+          wrapProps={{ onTouchStart: this.onWrapTouchStart }}
+          wrapClassName="feature-section"
+        >
+          <div className="feature-content">
+            <div className="header-article">全部特色</div>
+            <div className="list-article">{this.handleFeatureList()}</div>
+          </div>
+        </Modal>
       </div>
     );
   }
