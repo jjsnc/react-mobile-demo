@@ -1,14 +1,16 @@
 .wrap {
-  height: 2000px;
+  background: #292929;
+  min-height: 100vh;
   .fixed-section {
     box-sizing: border-box;
     position: fixed;
     left: 0;
     top: 0;
+    right: 0;
     z-index: 1;
     padding: 16px;
-    &.active{
-      background: linear-gradient(180deg, #004D70 0%, #363636 100%);
+    &.active {
+      background: linear-gradient(180deg, #004d70 0%, #004d70 100%);
     }
     .input-wrap {
       position: relative;
@@ -70,7 +72,7 @@
     z-index: 66;
     background: url("https://img.91funlife.com/img/hsk/zhibeishenghuo/combo-header-bg2@2x.png");
     background-size: cover;
-    background-position: 0 95px;
+    background-position: 0 97px;
     &.active {
       background: linear-gradient(180deg, #004d70 0%, #363636 100%);
     }
@@ -110,6 +112,150 @@
         border-width: 6px 5px 6px;
         top: 5px;
         left: 4px;
+      }
+    }
+  }
+  .list-section {
+    padding: 0 16px;
+    background: #292929;
+    .list {
+      .sub-item {
+        border-radius: 8px;
+        background: #fff;
+        padding: 12px;
+        margin-bottom: 12px;
+        .header-article {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-bottom: 6px;
+          .title {
+            font-size: 15px;
+            color: #212121;
+            font-weight: 500;
+          }
+          .city {
+            font-size: 12px;
+          }
+        }
+        .tags-article {
+          padding-bottom: 8px;
+          .tag {
+            position: relative;
+            box-sizing: border-box;
+            display: inline-block;
+            font-size: 10px;
+            color: #a56b6b;
+            margin-right: 5px;
+            padding: 0px 5px;
+            height: 16px;
+            line-height: 16px;
+            &::before {
+              content: "";
+              position: absolute; /* 把父视图设置为relative，方便定位*/
+              top: 0;
+              left: 0;
+              width: 200%;
+              height: 200%;
+              transform: scale(0.5);
+              transform-origin: 0 0;
+              box-sizing: border-box;
+              border-radius: 16px;
+              border: 1px solid #a56b6b;
+            }
+          }
+        }
+        .picture-article {
+          background: fff;
+          margin-bottom: 12px;
+          display: flex;
+          justify-content: space-between;
+          .single-item {
+            .image-item {
+              border-radius: 50px;
+              width: 343px;
+              height: 76px;
+            }
+          }
+          .left-item {
+            .image-item {
+              border-radius: 8px;
+              width: 189px;
+              height: 150px;
+            }
+          }
+          .right-item {
+            .top {
+              margin-bottom: 6px;
+            }
+            .image-item {
+              border-radius: 8px;
+              width: 124px;
+              height: 74px;
+            }
+          }
+        }
+        .describe-article {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          font-size: 14px;
+          color: #212121;
+          line-height: 20px;
+          margin-bottom: 15px;
+        }
+        .submit-article {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .left-item {
+            .top {
+              display: flex;
+              .icon {
+                font-size: 12px;
+                color: #e14c54;
+                align-self: center;
+                font-weight: 500;
+              }
+              .num {
+                font-size: 18px;
+                color: #e14c54;
+                font-weight: 500;
+              }
+              .txt {
+                font-size: 12px;
+                color: #e14c54;
+                align-self: center;
+              }
+              .tips {
+                width: 52px;
+                height: 15px;
+                background: url("https://img.91funlife.com/img/hsk/zhibeishenghuo/v8-vip-icon@2x.png");
+                background-size: 52px 15px;
+                margin-left: 5px;
+              }
+            }
+            .bottom {
+              padding-top: 5px;
+              font-size: 10px;
+              color: #bdbdbd;
+              text-decoration: line-through;
+            }
+          }
+          .right-item {
+            .success-btn {
+              width: 70px;
+              height: 25px;
+              line-height: 25px;
+              text-align: center;
+              background: #e14c54;
+              border-radius: 12px;
+              font-size: 12px;
+              color: #fff;
+            }
+          }
+        }
       }
     }
   }
