@@ -22,8 +22,11 @@ class Home extends React.Component {
     this.state = {
       sticky: false,
       modal1: false,
+      modal2: false,
       activeSpecialty:"特色1",
       specialtyList: ["特色1", "特色2", "特色3", "特色4", "特色5", "特色6"],
+      activeBourn:"五角场",
+      bournList: ["五角场", "南京西路", "外滩", "京东", "长海", "海风"],
     };
   }
   componentDidMount() {
@@ -56,6 +59,7 @@ class Home extends React.Component {
       activeSpecialty:item
     })
   }
+  
   handleFeatureShow(){
     this.setState({
       modal1: true,
@@ -72,7 +76,30 @@ class Home extends React.Component {
       activeSpecialty: "",
     });
   }
-
+  handleBournClick(item) {
+    this.handleBournHide()
+    this.setState({
+      activeBourn:item
+    })
+  }
+  
+  handleBournShow(){
+    console.log('6666666')
+    this.setState({
+      modal2: true,
+    });
+  }
+  handleBournHide(){
+  this.setState({
+      modal2: false,
+    });
+  }
+  handleBournClear(){
+    this.handleBournHide()
+    this.setState({
+      activeBourn: "",
+    });
+  }
   onWrapTouchStart = (e) => {
     // fix touch to scroll background page on iOS
     if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
@@ -104,6 +131,27 @@ class Home extends React.Component {
     }
     return <div className="list">{listItems}</div>;
   }
+  handleBournList() {
+    const bournList = this.state.bournList;
+    const listItems = bournList.map((item) => (
+      <div
+        className={`sub-item ${this.state.activeBourn===item?'active':''}`} 
+        key={item}
+        onClick={() => this.handleBournClick(item)}
+      >
+        {item}
+      </div>
+    ));
+    if (bournList.length % 3 !== 0) {
+      return (
+        <div className="list">
+          {listItems}
+          <div className="sub-item empty"></div>
+        </div>
+      );
+    }
+    return <div className="list">{listItems}</div>;
+  }
   render() {
     return (
       <div className="wrap">
@@ -118,8 +166,8 @@ class Home extends React.Component {
         </div>
 
         <div className={`select-section ${this.state.sticky ? "active" : ""} `}>
-          <div className={`targets ${this.state.modal1? 'active':''}`} onClick={this.handleFeatureShow.bind(this)}>目的地</div>
-          <div className="tags">目的地</div>
+          <div className={`targets ${this.state.modal1? 'active':''}`} onClick={this.handleFeatureShow.bind(this)}>{this.state.activeSpecialty || '特色'}</div>
+          <div className={`tags ${this.state.modal2? 'active':''}`} onClick={this.handleBournShow.bind(this)}>{this.state.activeBourn || '目的地'}</div>
         </div>
         <div className="list-section">
           <div className="list">
@@ -311,6 +359,23 @@ class Home extends React.Component {
           </div>
         </Modal>
         
+        <Modal
+          visible={this.state.modal2}
+          transparent
+          maskClosable={true}
+          onClose={this.handleBournHide.bind(this)}
+          wrapProps={{ onTouchStart: this.onWrapTouchStart }}
+          wrapClassName="bourn-section"
+        >
+          <div className="bourn-content">
+            <div className="header-article">
+              <div className="left-item"></div>
+              <div className="middle-item">目的地</div>
+              <div className="right-item" onClick={this.handleBournClear.bind(this)}>清除</div>
+            </div>
+            <div className="list-article">{this.handleBournList()}</div>
+          </div>
+        </Modal>
 
 
       </div>

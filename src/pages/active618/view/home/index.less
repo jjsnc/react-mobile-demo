@@ -116,6 +116,13 @@
         top: 5px;
         left: 4px;
       }
+      &.active {
+        &::after {
+          top: -2px;
+          transform: rotate(180deg);
+          border-color: #e14c54 transparent transparent transparent;
+        }
+      }
     }
   }
   .list-section {
@@ -335,3 +342,111 @@
     }
   }
 }
+
+
+
+.bourn-section {
+  display: initial;
+  .am-modal {
+    width: 100%;
+    .am-modal-content {
+      background: transparent;
+      padding: 0;
+      .am-modal-body {
+        padding: 0;
+        width: 100%;
+        .header-article {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .left-item {
+            flex: 1;
+          }
+          .middle-item {
+            flex: 1;
+            font-size: 18px;
+            color: #fff;
+            font-weight: 400;
+            text-align: center;
+            padding: 16px;
+          }
+          .right-item {
+            flex: 1;
+            font-size: 14px;
+            color: #fff;
+            text-align: right;
+            padding-right: 16px;
+          }
+        }
+        .location-article {
+          padding: 0 16px;
+          margin-bottom: 22px;
+          .title {
+            color: #fff;
+            font-size: 14px;
+            margin-bottom: 13px;
+          }
+          .city {
+            width: 109px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            background: linear-gradient(171deg, #ffe1af 0%, #edb861 100%);
+            border-radius: 5px;
+            font-size: 12px;
+            color: #754b05;
+            position: relative;
+            &::after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              left: 25px;
+              width: 11px;
+              height: 14px;
+              background-image: url('https://img.91funlife.com/img/hsk/zhibeishenghuo/v8-loction@2x.png');
+              background-size: 11px 14px;
+      
+            }
+          }
+        }
+        .list-article {
+          padding: 0 16px;
+          .title {
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 12px;
+          }
+          .list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            .sub-item {
+              width: 109px;
+              height: 32px;
+              line-height: 32px;
+              text-align: center;
+              border-radius: 5px;
+              background: #fff;
+              font-size: 12px;
+              color: #212121;
+              box-sizing: border-box;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              margin-bottom: 8px;
+              &.active {
+                background: linear-gradient(171deg, #ffe1af 0%, #edb861 100%);
+                color: #754b05;
+              }
+              &.empty {
+                background: transparent;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
