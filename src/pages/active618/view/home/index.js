@@ -66,6 +66,12 @@ class Home extends React.Component {
       modal1: false,
     });
   }
+  handleFeatureClear(){
+    this.handleFeatureHide()
+    this.setState({
+      activeSpecialty: "",
+    });
+  }
 
   onWrapTouchStart = (e) => {
     // fix touch to scroll background page on iOS
@@ -296,10 +302,17 @@ class Home extends React.Component {
           wrapClassName="feature-section"
         >
           <div className="feature-content">
-            <div className="header-article">全部特色</div>
+            <div className="header-article">
+              <div className="left-item"></div>
+              <div className="middle-item">全部特色</div>
+              <div className="right-item" onClick={this.handleFeatureClear.bind(this)}>清除</div>
+            </div>
             <div className="list-article">{this.handleFeatureList()}</div>
           </div>
         </Modal>
+        
+
+
       </div>
     );
   }
