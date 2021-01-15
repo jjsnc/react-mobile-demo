@@ -14,13 +14,22 @@ class Home extends React.Component {
     window.removeEventListener("scroll", this.bindHandleScroll);
   }
   bindHandleScroll = () => {
+    this.handleSticky();
+    this.handleScorllBottom();
+  };
+  handleSticky() {
     var scrollt = document.documentElement.scrollTop;
     if (scrollt > 100) {
       this.setState({ sticky: true });
     } else {
       this.setState({ sticky: false });
     }
-  };
+  }
+  handleScorllBottom() {
+    if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+       console.log('你好呀 我滚动到底部了');
+    }
+  }
   render() {
     return (
       <div className="wrap">
