@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Modal } from "antd-mobile";
+import DefaultTips from "../../components/default-tips";
 import "./index.less";
 function closest(el, selector) {
   const matchesSelector =
@@ -84,7 +85,6 @@ class Home extends React.Component {
   }
 
   handleBournShow() {
-    console.log("6666666");
     this.setState({
       modal2: true,
     });
@@ -406,6 +406,7 @@ class Home extends React.Component {
             <div className="list-article">{this.handleBournList()}</div>
           </div>
         </Modal>
+        <DefaultTips></DefaultTips>
       </div>
     );
   }
