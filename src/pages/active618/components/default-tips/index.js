@@ -18,7 +18,7 @@ export default class DefaultTips extends Component {
     let {title, subTitle} =  this.props;
     return (
       <div className="default-page">
-          <img className="image-item" alt="缺省图片提示" src="https://img.91funlife.com/img/hsk/zhibeishenghuo/v6-default@2x.png"></img>
+          <img className="image-item" alt="缺省图片提示" src="https://img.91funlife.com/img/hsk/zhibeishenghuo/v8-default@2x.png"></img>
           <div className="title">{title}</div>
           <div className="sub-title">{subTitle}</div>
       </div>

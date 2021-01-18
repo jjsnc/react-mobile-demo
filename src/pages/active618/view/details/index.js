@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import Swiper from "../../components/swiper";
+import MySwiper from "../../components/swiper";
 import "./index.less";
 class Details extends React.Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class Details extends React.Component {
     return (
       <div className="details-wrap">
         <div className="header-section">
-           <Swiper />
+           <MySwiper />
         </div>
       </div>
     );
