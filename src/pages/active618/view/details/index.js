@@ -1,14 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Label from '../../components/label';
 class Details extends React.Component {
     componentDidMount() {
     }
     render() {
         return (
-            <div>
+            <div className="wrap">
                 Details
-                <Label></Label>
             </div>
         )
     }

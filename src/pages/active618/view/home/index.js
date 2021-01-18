@@ -24,11 +24,15 @@ class Home extends React.Component {
       sticky: false,
       modal1: false,
       modal2: false,
+      value:"",
       activeSpecialty: "特色1",
       specialtyList: ["特色1", "特色2", "特色3", "特色4", "特色5", "特色6"],
       activeBourn: "五角场",
       bournList: ["五角场", "南京西路", "外滩", "京东", "长海", "海风"],
     };
+    this.handleInput = this.handleInput.bind(this);
+    this.handleClearInput = this.handleClearInput.bind(this);
+    
   }
   componentDidMount() {
     window.addEventListener("scroll", this.bindHandleScroll);
@@ -100,6 +104,16 @@ class Home extends React.Component {
       activeBourn: "",
     });
   }
+  handleInput(e){
+    this.setState({
+      value:e.target.value
+    })
+  }
+  handleClearInput(){
+    this.setState({
+      value:""
+    })
+  }
   onWrapTouchStart = (e) => {
     // fix touch to scroll background page on iOS
     if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
@@ -157,12 +171,14 @@ class Home extends React.Component {
     return <div className="list">{listItems}</div>;
   }
   render() {
+    let {value} = this.state
     return (
       <div className="wrap">
         
         <div className={`fixed-section ${this.state.sticky ? "active" : ""} `}>
           <div className="input-wrap">
-            <input className="input" placeholder="酒店名称/关键词"></input>
+            <input className="input" placeholder="酒店名称/关键词" value={value} onChange={this.handleInput}></input>
+             { value.length>0 ? <div className="close-btn" onClick={this.handleClearInput}></div>:''}
           </div>
         </div>
         <div className="header-section">
