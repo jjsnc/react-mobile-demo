@@ -1,4 +1,4 @@
-import React from "react";
+import React,{Fragment} from "react";
 import { connect } from "react-redux";
 import { Modal } from "antd-mobile";
 import DefaultTips from "../../components/default-tips";
@@ -159,6 +159,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="wrap">
+        
         <div className={`fixed-section ${this.state.sticky ? "active" : ""} `}>
           <div className="input-wrap">
             <input className="input" placeholder="酒店名称/关键词"></input>
@@ -183,6 +184,7 @@ class Home extends React.Component {
             {this.state.activeBourn || "目的地"}
           </div>
         </div>
+        {false? <Fragment>
         <div className="list-section">
           <div className="list">
             <div className="sub-item">
@@ -355,6 +357,7 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
+        </Fragment>:<div className="default-section"><DefaultTips title="抱歉，未找到符合条件的套餐"></DefaultTips></div>}
         <Modal
           visible={this.state.modal1}
           transparent
@@ -406,7 +409,8 @@ class Home extends React.Component {
             <div className="list-article">{this.handleBournList()}</div>
           </div>
         </Modal>
-        <DefaultTips></DefaultTips>
+  
+        
       </div>
     );
   }

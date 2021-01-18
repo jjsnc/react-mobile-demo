@@ -15,13 +15,12 @@ export default class DefaultTips extends Component {
     }
   }
   render(){
+    let {title, subTitle} =  this.props;
     return (
       <div className="default-page">
-          <img alt="缺省图片提示" src="https://img.91funlife.com/img/hsk/zhibeishenghuo/v6-default@2x.png"></img>
-
-          <div className="title">{this.state.title || "抱歉，未找到符合条件的套餐"}</div>
-          <div className="sub-title">{this.state.subTitle}</div>
-
+          <img className="image-item" alt="缺省图片提示" src="https://img.91funlife.com/img/hsk/zhibeishenghuo/v6-default@2x.png"></img>
+          <div className="title">{title}</div>
+          <div className="sub-title">{subTitle}</div>
       </div>
     )
   }
