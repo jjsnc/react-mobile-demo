@@ -173,7 +173,7 @@ class Home extends React.Component {
   render() {
     let {value} = this.state
     return (
-      <div className="wrap">
+      <div className="home-wrap">
         
         <div className={`fixed-section ${this.state.sticky ? "active" : ""} `}>
           <div className="input-wrap">
