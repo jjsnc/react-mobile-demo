@@ -23,9 +23,9 @@ class Home extends React.Component {
       sticky: false,
       modal1: false,
       modal2: false,
-      activeSpecialty:"特色1",
+      activeSpecialty: "特色1",
       specialtyList: ["特色1", "特色2", "特色3", "特色4", "特色5", "特色6"],
-      activeBourn:"五角场",
+      activeBourn: "五角场",
       bournList: ["五角场", "南京西路", "外滩", "京东", "长海", "海风"],
     };
   }
@@ -54,48 +54,48 @@ class Home extends React.Component {
     }
   }
   handleFeatureClick(item) {
-    this.handleFeatureHide()
+    this.handleFeatureHide();
     this.setState({
-      activeSpecialty:item
-    })
+      activeSpecialty: item,
+    });
   }
-  
-  handleFeatureShow(){
+
+  handleFeatureShow() {
     this.setState({
       modal1: true,
     });
   }
-  handleFeatureHide(){
-  this.setState({
+  handleFeatureHide() {
+    this.setState({
       modal1: false,
     });
   }
-  handleFeatureClear(){
-    this.handleFeatureHide()
+  handleFeatureClear() {
+    this.handleFeatureHide();
     this.setState({
       activeSpecialty: "",
     });
   }
   handleBournClick(item) {
-    this.handleBournHide()
+    this.handleBournHide();
     this.setState({
-      activeBourn:item
-    })
+      activeBourn: item,
+    });
   }
-  
-  handleBournShow(){
-    console.log('6666666')
+
+  handleBournShow() {
+    console.log("6666666");
     this.setState({
       modal2: true,
     });
   }
-  handleBournHide(){
-  this.setState({
+  handleBournHide() {
+    this.setState({
       modal2: false,
     });
   }
-  handleBournClear(){
-    this.handleBournHide()
+  handleBournClear() {
+    this.handleBournHide();
     this.setState({
       activeBourn: "",
     });
@@ -114,7 +114,9 @@ class Home extends React.Component {
     const specialtyList = this.state.specialtyList;
     const listItems = specialtyList.map((item) => (
       <div
-        className={`sub-item ${this.state.activeSpecialty===item?'active':''}`} 
+        className={`sub-item ${
+          this.state.activeSpecialty === item ? "active" : ""
+        }`}
         key={item}
         onClick={() => this.handleFeatureClick(item)}
       >
@@ -135,7 +137,9 @@ class Home extends React.Component {
     const bournList = this.state.bournList;
     const listItems = bournList.map((item) => (
       <div
-        className={`sub-item ${this.state.activeBourn===item?'active':''}`} 
+        className={`sub-item ${
+          this.state.activeBourn === item ? "active" : ""
+        }`}
         key={item}
         onClick={() => this.handleBournClick(item)}
       >
@@ -166,8 +170,18 @@ class Home extends React.Component {
         </div>
 
         <div className={`select-section ${this.state.sticky ? "active" : ""} `}>
-          <div className={`targets ${this.state.modal1? 'active':''}`} onClick={this.handleFeatureShow.bind(this)}>{this.state.activeSpecialty || '特色'}</div>
-          <div className={`tags ${this.state.modal2? 'active':''}`} onClick={this.handleBournShow.bind(this)}>{this.state.activeBourn || '目的地'}</div>
+          <div
+            className={`targets ${this.state.modal1 ? "active" : ""}`}
+            onClick={this.handleFeatureShow.bind(this)}
+          >
+            {this.state.activeSpecialty || "特色"}
+          </div>
+          <div
+            className={`tags ${this.state.modal2 ? "active" : ""}`}
+            onClick={this.handleBournShow.bind(this)}
+          >
+            {this.state.activeBourn || "目的地"}
+          </div>
         </div>
         <div className="list-section">
           <div className="list">
@@ -353,12 +367,17 @@ class Home extends React.Component {
             <div className="header-article">
               <div className="left-item"></div>
               <div className="middle-item">全部特色</div>
-              <div className="right-item" onClick={this.handleFeatureClear.bind(this)}>清除</div>
+              <div
+                className="right-item"
+                onClick={this.handleFeatureClear.bind(this)}
+              >
+                清除
+              </div>
             </div>
             <div className="list-article">{this.handleFeatureList()}</div>
           </div>
         </Modal>
-        
+
         <Modal
           visible={this.state.modal2}
           transparent
@@ -371,13 +390,22 @@ class Home extends React.Component {
             <div className="header-article">
               <div className="left-item"></div>
               <div className="middle-item">目的地</div>
-              <div className="right-item" onClick={this.handleBournClear.bind(this)}>清除</div>
+              <div
+                className="right-item"
+                onClick={this.handleBournClear.bind(this)}
+              >
+                清除
+              </div>
+            </div>
+            <div className="location-article">
+              <div className="title">定位城市</div>
+              <div className="city" data-name="{{locationCity.cityName}}">
+                上海
+              </div>
             </div>
             <div className="list-article">{this.handleBournList()}</div>
           </div>
         </Modal>
-
-
       </div>
     );
   }
