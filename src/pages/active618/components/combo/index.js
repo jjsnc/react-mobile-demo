@@ -1,6 +1,4 @@
-
-
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import "./index.less";
 export default class Combo extends Component {
   static propTypes = {};
@@ -10,13 +8,11 @@ export default class Combo extends Component {
 
   constructor(props) {
     super(props);
-    this.state={
-      value:1,
-    }
+    this.state = {
+      value: 1,
+    };
   }
-  render(){
-    return (
-      <div>123</div>
-    )
+  render() {
+    return <div>123</div>;
   }
 }
